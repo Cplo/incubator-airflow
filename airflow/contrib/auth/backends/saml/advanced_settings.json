@@ -1,0 +1,34 @@
+{
+    "security": {
+        "requestedAuthnContext": false,
+        "nameIdEncrypted": false,
+        "authnRequestsSigned": false,
+        "logoutRequestSigned": false,
+        "logoutResponseSigned": false,
+        "signMetadata": true,
+        "wantMessagesSigned": false,
+        "wantAssertionsSigned": false,
+        "wantNameId" : true,
+        "wantNameIdEncrypted": false,
+        "wantAssertionsEncrypted": false,
+        "signatureAlgorithm": "http://www.w3.org/2000/09/xmldsig#rsa-sha1",
+        "digestAlgorithm": "http://www.w3.org/2000/09/xmldsig#sha1"
+    },
+    "contactPerson": {
+        "technical": {
+            "givenName": "lxu1",
+            "emailAddress": "lxu1@xiaohongshu.com"
+        },
+        "support": {
+            "givenName": "lxu1",
+            "emailAddress": "lxu1@xiaohongshu.com"
+        }
+    },
+    "organization": {
+        "en-US": {
+            "name": "red-book",
+            "displayname": "Red Book",
+            "url": "https://airflow.devops.xiaohongshu.com"
+        }
+    }
+}

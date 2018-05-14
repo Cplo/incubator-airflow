@@ -1,0 +1,29 @@
+{
+  "strict": true,
+  "sp": {
+    "entityId": "https://airflow.devops.xiaohongshu.com",
+    "assertionConsumerService": {
+      "url": "https://airflow.devops.xiaohongshu.com/admin/airflow/saml",
+      "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+    },
+    "singleLogoutService": {
+      "url": "https://airflow.devops.xiaohongshu.com/api/saml/logout",
+      "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+    },
+    "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+    "x509cert": "{{data_platform_cert}}",
+    "privateKey": "{{data_platform_key}}"
+  },
+  "idp": {
+    "entityId": "http://sso.devops.xiaohongshu.com/adfs/services/trust",
+    "singleSignOnService": {
+      "url": "https://sso.devops.xiaohongshu.com/adfs/ls",
+      "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+    },
+    "singleLogoutService": {
+      "url": "https://sso.devops.xiaohongshu.com/adfs/ls",
+      "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+    },
+    "x509cert": "MIIC6DCCAdCgAwIBAgIQZiRU+RFa9rRJO57iE1ib9DANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVBREZTIFNpZ25pbmcgLSBkZXZvcHMueGlhb2hvbmdzaHUuY29tMB4XDTE3MDcyNTEzMDIxMFoXDTE4MDcyNTEzMDIxMFowMDEuMCwGA1UEAxMlQURGUyBTaWduaW5nIC0gZGV2b3BzLnhpYW9ob25nc2h1LmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALfwBsXi/9Hlor/Q8W9ljtRk/Pqv91OPdS5K9f4SyQKs1idFi1fR94uCnbC3HxZeCo4/3iCYoiwpG7PZnuC/EIDIQ0Pdu2b7jOcgmTww6k2CsyZPMZxBWaFPWofwL7kJ+SEUxz0Vd93TV2J/V09Gy6QR6lTBtz2CJZXpkTSYuLnQMfkDiHJKeFsrBkiH5bqVyEriv7rgiFajb8gZdTiEEbWEqGgps++17oCpmz9dMi0Vjz31ij2YHWPh3Y7EJ/aVGBHcFD1KgIqfWeDxJ0e2EjIqM8bdDAq6MsAWll1++BIkKBMUdoFvu7S8jT5aszUnScQzEPCXJL0Cs6rmBhEDoCkCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAhjhQbeaMJEYPC3ZwhfFAZMuuCOcFg3MgSh1fMDQ1iqtJ1uX7EpkX9NG0bJfFmyvU/5L/wjV41byg3N0HdHuO1VsFTV4q2XzFZJRBPb7Ta6OIQYw+qIX4RH18TSObguv3GgT7AbWHS8HDAmivmTWoL2fJL9sgIMnv/iL/EyG8iXf1fyZBP6Kr60d3xmPFyhlJ76/hBzqRGW6WrdAFunD1vIWr0u/zIs2GbY6A9CcLmpCTAgVTtytGmt+2iTm7trck1l8qOCQCkqX6iH6swHULLLZTUo6STQdTdsbtymf9GE396l6Pc3JwNXKG0Eq89/3l8o1vmyv7ikW1FdQUWTOs7w=="
+  }
+}

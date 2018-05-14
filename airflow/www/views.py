@@ -735,6 +735,10 @@ class Airflow(BaseView):
     def login(self):
         return airflow.login.login(self, request)
 
+    @expose('/saml', methods=['GET', 'POST'])
+    def saml(self):
+        return airflow.login.saml_login(self, request)
+
     @expose('/logout')
     def logout(self):
         logout_user()

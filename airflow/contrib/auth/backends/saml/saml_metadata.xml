@@ -1,0 +1,49 @@
+<md:EntityDescriptor cacheDuration="PT604800S" entityID="https://airflow.devops.xiaohongshu.com" validUntil="2018-05-13T10:03:47Z" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><ds:Reference><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>uQuGB+OjKblquBabDyoDLIMSsSA=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>i29FYlpNAICVgAG5VKvbbh8giHBzj3DGY/0ABjTL42komJnXTOFrdGtvNh3fCFki
+pnSlln+7nKwudxTRQQJHcI5D1c0HdYUiaE/j7PCUMuS8knOmlRmIylYac7aejVOp
+00NZ6FUOuvNdtY1Cbt/M8Vgtg0erZn32njnh/WYau9D2ghlkyGIKfFmxU14tBVhg
+lTFExnGHafQQJsqg47hLd7iyggwy07FeLTQGEPT+u304uGiUM4KM2a0ygB/T7I9W
+KqvJqijOM2A9QgvQdP17y0FDuKvruYimibxjhmhPn0HT5wwvwfclA8Auy7mZQf9w
+pr+7xi1iFIw723YnDQhb6w==</ds:SignatureValue><ds:KeyInfo><ds:X509Data>
+<ds:X509Certificate>MIIEKDCCAxACFQTlNbw1cnre7k402j82XqOO60VGszANBgkqhkiG9w0BAQUFADCC
+AQMxCzAJBgNVBAYTAkNOMQ8wDQYDVQQREwYyMDAwMjUxETAPBgNVBAgTCFNoYW5n
+aGFpMREwDwYDVQQHEwhTaGFuZ2hhaTFGMEQGA1UECRM9Um9vbSAyMDUsIEJ1aWxk
+aW5nIEIsIEZ1eGluZyBTb2hvIFBsYXphLCBOby4zODgsIE1hZGFuZyBSb2FkLDE7
+MDkGA1UEChMyWGluZ2luIEluZm9ybWF0aW9uIFRlY2hub2xvZ3kgKFNoYW5naGFp
+KSBDby4sIEx0ZC4xHDAaBgNVBAsTE1ByZW1pdW1TU0wgV2lsZGNhcmQxGjAYBgNV
+BAMMESoueGlhb2hvbmdzaHUuY29tMB4XDTE4MDUwOTA2MDcyNFoXDTI4MDUwNjA2
+MDcyNFowgZoxCzAJBgNVBAYTAkNOMREwDwYDVQQIDAhTaGFuZ2hhaTERMA8GA1UE
+BwwIU2hhbmdoYWkxGjAYBgNVBAoMEVJlZCBCb29rIERhdGFUZWFtMRowGAYDVQQL
+DBFSZWQgQm9vayBEYXRhVGVhbTEtMCsGA1UEAwwkaHR0cHM6Ly9wcmF0dC5kZXZv
+cHMueGlhb2hvbmdzaHUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAtBiK8m7mvQHLOVojk/Qfq6QKxh3Ybwuj4wxYAvz93PlieIQPCVW+yzqi7q10
+9k0dhZsNlCJlXlvEaixt6EAI2Mo0CTHzLatARHM2Vgohm/Lwaox7UzPMou/lziDM
+up9XBHerZxW33aEXqNzMASkH5dYYgM4DJ5pIHZwJlfHziu3147Fm4cPYUb91ck+3
+yfF3Y+2VEmS9Ucvet/QNQArdxOcpWDAiMmx9Wy3Q7MDqCtUikgALxIcTL/H6mJcm
+H9DZyTTXWvLKWJSDuFVYKrgC7jdLRHf15lUczQuttyouMNjjZ7n43l/vxGvDS5TM
+ckinQhXkmfGbFpFk3IRuFwVNuQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQAI6l1J
+QzErR1V5Z/rB17RerhG9+/umbGG32wUyvI6JctEWrAhMzHlPDlCMpTfRnv40LQoj
+II9aPuFBzRqV57Y0ZGvs1xO1Tp3Ay6TqSAbe66jjo7+Tali21Gj685VuTe6MZgKp
+eS13/+QR3BlZlZM4kSvM0Isjx+A6Y8N28tLn1CmPFpQqW5dbwAV8FVua3lwZ9onf
+wcingt414Uocynrhy/Tjnk9CX4WtZmINu+3JhgHzLj2DMzH9tTJEedqFUU+GLAcW
+ykfKRmk5IbYnNA4icN3BEuSXUboT6/XXdEhSkElz/uPhYbSWC//+gbZ0XJf+bc/n
+U940jFrArmq2ZjIc</ds:X509Certificate>
+</ds:X509Data></ds:KeyInfo></ds:Signature><md:KeyDescriptor use="signing" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIEKDCCAxACFQTlNbw1cnre7k402j82XqOO60VGszANBgkqhkiG9w0BAQUFADCCAQMxCzAJBgNVBAYTAkNOMQ8wDQYDVQQREwYyMDAwMjUxETAPBgNVBAgTCFNoYW5naGFpMREwDwYDVQQHEwhTaGFuZ2hhaTFGMEQGA1UECRM9Um9vbSAyMDUsIEJ1aWxkaW5nIEIsIEZ1eGluZyBTb2hvIFBsYXphLCBOby4zODgsIE1hZGFuZyBSb2FkLDE7MDkGA1UEChMyWGluZ2luIEluZm9ybWF0aW9uIFRlY2hub2xvZ3kgKFNoYW5naGFpKSBDby4sIEx0ZC4xHDAaBgNVBAsTE1ByZW1pdW1TU0wgV2lsZGNhcmQxGjAYBgNVBAMMESoueGlhb2hvbmdzaHUuY29tMB4XDTE4MDUwOTA2MDcyNFoXDTI4MDUwNjA2MDcyNFowgZoxCzAJBgNVBAYTAkNOMREwDwYDVQQIDAhTaGFuZ2hhaTERMA8GA1UEBwwIU2hhbmdoYWkxGjAYBgNVBAoMEVJlZCBCb29rIERhdGFUZWFtMRowGAYDVQQLDBFSZWQgQm9vayBEYXRhVGVhbTEtMCsGA1UEAwwkaHR0cHM6Ly9wcmF0dC5kZXZvcHMueGlhb2hvbmdzaHUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtBiK8m7mvQHLOVojk/Qfq6QKxh3Ybwuj4wxYAvz93PlieIQPCVW+yzqi7q109k0dhZsNlCJlXlvEaixt6EAI2Mo0CTHzLatARHM2Vgohm/Lwaox7UzPMou/lziDMup9XBHerZxW33aEXqNzMASkH5dYYgM4DJ5pIHZwJlfHziu3147Fm4cPYUb91ck+3yfF3Y+2VEmS9Ucvet/QNQArdxOcpWDAiMmx9Wy3Q7MDqCtUikgALxIcTL/H6mJcmH9DZyTTXWvLKWJSDuFVYKrgC7jdLRHf15lUczQuttyouMNjjZ7n43l/vxGvDS5TMckinQhXkmfGbFpFk3IRuFwVNuQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQAI6l1JQzErR1V5Z/rB17RerhG9+/umbGG32wUyvI6JctEWrAhMzHlPDlCMpTfRnv40LQojII9aPuFBzRqV57Y0ZGvs1xO1Tp3Ay6TqSAbe66jjo7+Tali21Gj685VuTe6MZgKpeS13/+QR3BlZlZM4kSvM0Isjx+A6Y8N28tLn1CmPFpQqW5dbwAV8FVua3lwZ9onfwcingt414Uocynrhy/Tjnk9CX4WtZmINu+3JhgHzLj2DMzH9tTJEedqFUU+GLAcWykfKRmk5IbYnNA4icN3BEuSXUboT6/XXdEhSkElz/uPhYbSWC//+gbZ0XJf+bc/nU940jFrArmq2ZjIc</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor>
+        <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://airflow.devops.xiaohongshu.com/api/saml/logout"/>
+        <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+        <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://airflow.devops.xiaohongshu.com/admin/airflow/saml" index="1"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+        <md:OrganizationName xml:lang="en-US">red-book</md:OrganizationName>
+        <md:OrganizationDisplayName xml:lang="en-US">Red Book</md:OrganizationDisplayName>
+        <md:OrganizationURL xml:lang="en-US">https://airflow.devops.xiaohongshu.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+        <md:GivenName>lxu1</md:GivenName>
+        <md:EmailAddress>lxu1@xiaohongshu.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+        <md:GivenName>lxu1</md:GivenName>
+        <md:EmailAddress>lxu1@xiaohongshu.com</md:EmailAddress>
+    </md:ContactPerson>
+</md:EntityDescriptor>

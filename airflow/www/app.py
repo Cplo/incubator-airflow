@@ -48,6 +48,7 @@ def create_app(config=None, testing=False):
         'webserver', 'AUTHENTICATE')
 
     csrf.init_app(app)
+    csrf.exempt('airflow.www.views.saml')
 
     app.config['TESTING'] = testing
 
