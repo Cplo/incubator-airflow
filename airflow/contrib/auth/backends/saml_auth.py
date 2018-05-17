@@ -21,7 +21,6 @@ class AuthenticationError(Exception):
 
 
 class SamlUser(models.User):
-
     def is_active(self):
         '''Required by flask_login'''
         return True
@@ -45,6 +44,10 @@ class SamlUser(models.User):
     def is_superuser(self):
         '''Access all the things'''
         return True
+
+    @property
+    def user(self):
+        return super(SamlUser, self)
 
 
 @login_manager.user_loader
@@ -76,7 +79,7 @@ def saml_login(self, request):
             raise AuthenticationError("email not set")
 
         login_user = SamlUser()
-        login_user.username = saml_user.name
+        login_user.username = saml_user.email.split('@')[0]
         login_user.email = saml_user.email
         try_registe(login_user, session)
 

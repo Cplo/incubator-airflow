@@ -30,3 +30,9 @@ include airflow/alembic.ini
 graft scripts/systemd
 graft scripts/upstart
 graft airflow/config_templates
+include requirements.txt
+include airflow/contrib/auth/backends/saml/advanced_settings.json
+include airflow/contrib/auth/backends/saml/data-platform.cert
+include airflow/contrib/auth/backends/saml/data-platform.key
+include airflow/contrib/auth/backends/saml/settings.json
+include airflow/contrib/auth/backends/saml/saml_metadata.xml
