@@ -49,7 +49,10 @@ class WorkerConfiguration(LoggingMixin):
             'value': self.kube_config.git_branch
         }, {
             'name': 'GIT_SYNC_ROOT',
-            'value': '/tmp'
+            'value': os.path.join(
+                self.worker_airflow_dags,
+                self.kube_config.git_subpath
+            )
         }, {
             'name': 'GIT_SYNC_DEST',
             'value': 'dags'
@@ -80,11 +83,11 @@ class WorkerConfiguration(LoggingMixin):
     def _get_environment(self):
         """Defines any necessary environment variables for the pod executor"""
         env = {
-            'AIRFLOW__CORE__DAGS_FOLDER': '/tmp/dags',
             'AIRFLOW__CORE__EXECUTOR': 'LocalExecutor'
         }
         if self.kube_config.airflow_configmap:
             env['AIRFLOW__CORE__AIRFLOW_HOME'] = self.worker_airflow_home
+            env['AIRFLOW__CORE__DAGS_FOLDER'] = self.worker_airflow_dags
         return env
 
     def _get_secrets(self):
