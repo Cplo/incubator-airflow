@@ -109,6 +109,7 @@ class KubernetesPodOperator(BaseOperator):
             pod.resources = self.resources
             pod.affinity = self.affinity
             pod.node_selectors = self.node_selectors
+            pod.image_pull_secrets = self.image_pull_secrets
 
             launcher = pod_launcher.PodLauncher(kube_client=client,
                                                 extract_xcom=self.xcom_push)
@@ -148,6 +149,7 @@ class KubernetesPodOperator(BaseOperator):
                  config_file=None,
                  xcom_push=False,
                  node_selectors=None,
+                 image_pull_secrets=None,
                  *args,
                  **kwargs):
         super(KubernetesPodOperator, self).__init__(*args, **kwargs)
@@ -172,3 +174,4 @@ class KubernetesPodOperator(BaseOperator):
         self.xcom_push = xcom_push
         self.resources = resources or Resources()
         self.config_file = config_file
+        self.image_pull_secrets = image_pull_secrets
