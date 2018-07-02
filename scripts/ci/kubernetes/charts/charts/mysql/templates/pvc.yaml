@@ -1,0 +1,24 @@
+{{- if and .Values.global.persistence.enabled (not .Values.global.persistence.existingClaim) }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "mysql.fullname" . }}
+  labels:
+    app: {{ template "mysql.fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  accessModes:
+    - {{ .Values.global.persistence.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.global.persistence.size | quote }}
+{{- if .Values.global.persistence.storageClass }}
+{{- if (eq "-" .Values.global.persistence.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.global.persistence.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end }}
