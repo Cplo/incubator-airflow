@@ -20,7 +20,7 @@ gitsync:
   pullPolicy: Always
   env:
     GIT_SYNC_REPO: https://code.devops.xiaohongshu.com/pengchen/Airflow-DAGs.git
-    GIT_SYNC_BRANCH: master
+    GIT_SYNC_BRANCH: prod
     GIT_SYNC_USERNAME: pengchen
     GIT_SYNC_PASSWORD: 283049lo
     GIT_SYNC_ROOT: /git
@@ -35,7 +35,7 @@ global:
     enabled: False
     storageClass: "cbs"
     accessMode: ReadWriteOnce
-    size: 10Gi  
+    size: 10Gi
 
 # airflow-logs storage
 persistence:
@@ -62,19 +62,19 @@ airflowCfg:
     worker_container_tag: prod
     worker_container_image_pull_policy: Always
     delete_worker_pods: False
-    
+
 
 # imagePullSecrets:
   # - name: myRegistryKeySecretName
 
 ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - chart-example.local
+    - kubeairflow.devops.xiaohongshu.com
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:

@@ -88,7 +88,7 @@ def saml_login(self, request):
         session.commit()
         session.close()
 
-        return redirect(url_for("admin.index"))
+        return redirect(request.args.get("next") or url_for("admin.index"))
     except AuthenticationError as exp:
         flash("Incorrect login details")
         return "login failed for {}".format(exp)
