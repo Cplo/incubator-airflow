@@ -32,7 +32,7 @@ secrets:
 global:
   # mysqldb storage
   persistence:
-    enabled: False
+    enabled: True
     storageClass: "cbs"
     accessMode: ReadWriteOnce
     size: 10Gi
@@ -56,6 +56,7 @@ airflowCfg:
     authenticate: True
     filter_by_owner: True
     auth_backend: airflow.contrib.auth.backends.password_auth
+    base_url: http://kubeairflow.dev.xiaohongshu.com
   api:
   kubernetes:
     worker_container_repository: docker-reg.devops.xiaohongshu.com/library/airflow

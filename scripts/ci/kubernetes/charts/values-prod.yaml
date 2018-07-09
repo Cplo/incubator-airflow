@@ -19,7 +19,7 @@ gitsync:
   tag: v2.0.5
   pullPolicy: Always
   env:
-    GIT_SYNC_REPO: https://code.devops.xiaohongshu.com/pengchen/Airflow-DAGs.git
+    GIT_SYNC_REPO: https://code.devops.xiaohongshu.com/devops/Airflow-DAGs.git
     GIT_SYNC_BRANCH: prod
     GIT_SYNC_USERNAME: pengchen
     GIT_SYNC_PASSWORD: 283049lo
@@ -32,14 +32,14 @@ secrets:
 global:
   # mysqldb storage
   persistence:
-    enabled: False
+    enabled: True
     storageClass: "cbs"
     accessMode: ReadWriteOnce
     size: 10Gi
 
 # airflow-logs storage
 persistence:
-  enabled: False
+  enabled: True
   nfsServer: 10.0.193.43
   nfsMountPath: /
   accessMode: ReadWriteMany
@@ -56,12 +56,13 @@ airflowCfg:
     authenticate: True
     filter_by_owner: True
     auth_backend: airflow.contrib.auth.backends.password_auth
+    base_url: http://kubeairflow.devops.xiaohongshu.com
   api:
   kubernetes:
     worker_container_repository: docker-reg.devops.xiaohongshu.com/library/airflow
     worker_container_tag: prod
     worker_container_image_pull_policy: Always
-    delete_worker_pods: False
+    delete_worker_pods: True
 
 
 # imagePullSecrets:

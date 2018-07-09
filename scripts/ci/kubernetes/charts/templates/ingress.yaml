@@ -32,7 +32,7 @@ spec:
         paths:
           - path: {{ $ingressPath }}
             backend:
-              serviceName: {{ template "airflow.fullname" . }}
+              serviceName: {{ $fullName }}
               servicePort: webserver
   {{- end }}
 {{- end }}
