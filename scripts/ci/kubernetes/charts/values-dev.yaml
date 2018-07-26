@@ -19,12 +19,13 @@ gitsync:
   tag: v2.0.5
   pullPolicy: Always
   env:
-    GIT_SYNC_REPO: https://code.devops.xiaohongshu.com/pengchen/Airflow-DAGs.git
+    GIT_SYNC_REPO: https://code.devops.xiaohongshu.com/devops/Airflow-DAGs.git
     GIT_SYNC_BRANCH: dev
     GIT_SYNC_USERNAME: pengchen
     GIT_SYNC_PASSWORD: 283049lo
     GIT_SYNC_ROOT: /git
     GIT_SYNC_DEST: dags
+    GIT_SYNC_MAX_SYNC_FAILURES: 5
 
 secrets:
   sqlAlchemyConn: mysql://root:root@airflow-mysql:3306/airflow

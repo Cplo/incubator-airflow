@@ -25,6 +25,7 @@ gitsync:
     GIT_SYNC_PASSWORD: 283049lo
     GIT_SYNC_ROOT: /git
     GIT_SYNC_DEST: dags
+    GIT_SYNC_MAX_SYNC_FAILURES: 5
 
 secrets:
   sqlAlchemyConn: mysql://root:root@airflow-mysql:3306/airflow
@@ -35,7 +36,7 @@ global:
     enabled: False
     storageClass: "cbs"
     accessMode: ReadWriteOnce
-    size: 10Gi  
+    size: 10Gi
 
 # airflow-logs storage
 persistence:
@@ -62,7 +63,7 @@ airflowCfg:
     worker_container_tag: master
     worker_container_image_pull_policy: Always
     delete_worker_pods: False
-    
+
 
 # imagePullSecrets:
   # - name: myRegistryKeySecretName

@@ -25,6 +25,7 @@ gitsync:
     GIT_SYNC_PASSWORD: 283049lo
     GIT_SYNC_ROOT: /git
     GIT_SYNC_DEST: dags
+    GIT_SYNC_MAX_SYNC_FAILURES: 5
 
 secrets:
   sqlAlchemyConn: mysql://root:root@airflow-mysql:3306/airflow
@@ -56,7 +57,7 @@ airflowCfg:
     authenticate: True
     filter_by_owner: True
     auth_backend: airflow.contrib.auth.backends.password_auth
-    base_url: http://kubeairflow.devops.xiaohongshu.com
+    base_url: https://kubeairflow.devops.xiaohongshu.com
   api:
   kubernetes:
     worker_container_repository: docker-reg.devops.xiaohongshu.com/library/airflow
