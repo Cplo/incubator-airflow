@@ -24,6 +24,7 @@ from airflow.utils.state import State
 from airflow.contrib.kubernetes.volume_mount import VolumeMount  # noqa
 from airflow.contrib.kubernetes.volume import Volume  # noqa
 from airflow.contrib.kubernetes.secret import Secret  # noqa
+import os
 
 template_fields = ('templates_dict',)
 template_ext = tuple()
@@ -93,6 +94,11 @@ class KubernetesPodOperator(BaseOperator):
             for volume in self.volumes:
                 gen.add_volume(volume)
 
+            if self.in_cluster:
+                worker_pod_name = os.environ.get('WORKER_POD_NAME')
+                worker_pod_uid = os.environ.get('WORKER_POD_UID')
+                gen.add_ownerreference(worker_pod_name, "v1", "Pod", worker_pod_uid)
+
             pod = gen.make_pod(
                 namespace=self.namespace,
                 image=self.image,
@@ -111,6 +117,7 @@ class KubernetesPodOperator(BaseOperator):
             pod.affinity = self.affinity
             pod.node_selectors = self.node_selectors
             pod.image_pull_secrets = self.image_pull_secrets
+            pod.hostnetwork = self.hostnetwork
 
             launcher = pod_launcher.PodLauncher(kube_client=client,
                                                 extract_xcom=self.xcom_push)
@@ -119,8 +126,8 @@ class KubernetesPodOperator(BaseOperator):
                 startup_timeout=self.startup_timeout_seconds,
                 get_logs=self.get_logs)
 
-            if self.is_delete_operator_pod:
-                launcher.delete_pod(pod)
+            # if self.is_delete_operator_pod:
+            #     launcher.delete_pod(pod)
 
             if final_state != State.SUCCESS:
                 raise AirflowException(
@@ -157,6 +164,7 @@ class KubernetesPodOperator(BaseOperator):
                  image_pull_secrets=None,
                  service_account_name=None,
                  is_delete_operator_pod=False,
+                 hostnetwork=False,
                  *args,
                  **kwargs):
         super(KubernetesPodOperator, self).__init__(*args, **kwargs)
@@ -184,3 +192,4 @@ class KubernetesPodOperator(BaseOperator):
         self.image_pull_secrets = image_pull_secrets
         self.service_account_name = service_account_name
         self.is_delete_operator_pod = is_delete_operator_pod
+        self.hostnetwork = hostnetwork

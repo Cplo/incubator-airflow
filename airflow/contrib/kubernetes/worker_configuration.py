@@ -99,6 +99,13 @@ class WorkerConfiguration(LoggingMixin):
                 Secret('env', env_var_name, k8s_secret_obj, k8s_secret_key))
         return worker_secrets
 
+    def _get_downwardapis(self):
+        downwardapis = {
+            'WORKER_POD_NAME': 'metadata.name',
+            'WORKER_POD_UID': 'metadata.uid'
+        }
+        return downwardapis
+
     def _get_image_pull_secrets(self):
         """Extracts any image pull secrets for fetching container(s)"""
         if not self.kube_config.image_pull_secrets:
@@ -212,6 +219,7 @@ class WorkerConfiguration(LoggingMixin):
             },
             envs=self._get_environment(),
             secrets=self._get_secrets(),
+            downwardapis=self._get_downwardapis(),
             service_account_name=self.kube_config.worker_service_account_name,
             image_pull_secrets=self.kube_config.image_pull_secrets,
             init_containers=worker_init_container_spec,

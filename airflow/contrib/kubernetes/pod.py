@@ -77,13 +77,17 @@ class Pod:
             service_account_name=None,
             resources=None,
             annotations=None,
-            affinity=None
+            affinity=None,
+            ownerreferences=None,
+            hostnetwork=False,
+            downwardapis=None
     ):
         self.image = image
         self.envs = envs or {}
         self.cmds = cmds
         self.args = args or []
         self.secrets = secrets or []
+        self.downwardapis = downwardapis or {}
         self.result = result
         self.labels = labels or {}
         self.name = name
@@ -98,3 +102,5 @@ class Pod:
         self.resources = resources or Resources()
         self.annotations = annotations or {}
         self.affinity = affinity or {}
+        self.ownerreferences = ownerreferences or []
+        self.hostnetwork = hostnetwork

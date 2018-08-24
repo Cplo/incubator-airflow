@@ -56,6 +56,17 @@ class KubernetesRequestFactory:
                 }
             }
         })
+    @staticmethod
+    def add_downwardapi_to_env(env, downwardapis):
+        for name, fieldpath in six.iteritems(downwardapis):
+          env.append({
+              'name': name,
+              'valueFrom': {
+                  'fieldRef': {
+                      'fieldPath': fieldpath
+                  }
+              }
+          })
 
     @staticmethod
     def extract_labels(pod, req):
@@ -68,6 +79,12 @@ class KubernetesRequestFactory:
         req['metadata']['annotations'] = req['metadata'].get('annotations', {})
         for k, v in six.iteritems(pod.annotations):
             req['metadata']['annotations'][k] = v
+
+    @staticmethod
+    def extract_ownerreferences(pod, req):
+        if len(pod.ownerreferences) > 0:
+            req['metadata']['ownerReferences'] = req['metadata'].get('ownerReferences', [])
+            req['metadata']['ownerReferences'].extend(pod.ownerreferences)
 
     @staticmethod
     def extract_affinity(pod, req):
@@ -132,12 +149,13 @@ class KubernetesRequestFactory:
     @staticmethod
     def extract_env_and_secrets(pod, req):
         env_secrets = [s for s in pod.secrets if s.deploy_type == 'env']
-        if len(pod.envs) > 0 or len(env_secrets) > 0:
+        if len(pod.envs) > 0 or len(env_secrets) or len(pod.downwardapis) > 0:
             env = []
             for k in pod.envs.keys():
                 env.append({'name': k, 'value': pod.envs[k]})
             for secret in env_secrets:
                 KubernetesRequestFactory.add_secret_to_env(env, secret)
+            KubernetesRequestFactory.add_downwardapi_to_env(env, pod.downwardapis)
             req['spec']['containers'][0]['env'] = env
 
     @staticmethod
@@ -174,6 +192,11 @@ class KubernetesRequestFactory:
     def extract_service_account_name(pod, req):
         if pod.service_account_name:
             req['spec']['serviceAccountName'] = pod.service_account_name
+
+    @staticmethod
+    def extract_hostnetwork(pod, req):
+        if pod.hostnetwork:
+            req['spec']['hostNetwork'] = pod.hostnetwork
 
     @staticmethod
     def extract_image_pull_secrets(pod, req):
